@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DO_AN.Models.Khuyenmai>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<h1>Khuyến Mãi</h1>
+
+<p>
+    <a class="btn btn-default" asp-action="Add">Tạo mới</a>
+</p>
+<div class="table-responsive">
+    <!-- Thêm class table-responsive để tạo thanh cuộn ngang -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="border: 2px solid black;text-align: center">Mã khuyến mãi</th>
+                <th style="border: 2px solid black;text-align: center">Phần trăm khuyến mãi</th>
+                <th style="border: 2px solid black;text-align: center">Tên chương trình</th>
+                <th style="border: 2px solid black;text-align: center">Điều kiện</th>
+                <th style="border: 2px solid black;text-align: center">Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="border: 2px solid black; white-space: nowrap;">@Html.DisplayFor(modelItem => item.Makm)</td>
+                    <td style="border: 2px solid black; white-space: nowrap;">@Html.DisplayFor(modelItem => item.Phantramkm)</td>
+                    <td style="border: 2px solid black; white-space: nowrap;">@Html.DisplayFor(modelItem => item.Tenkm)</td>
+                    <td style="border: 2px solid black; white-space: nowrap;">@Html.DisplayFor(modelItem => item.Dk)</td>
+                    <td style="border: 2px solid black;">
+                        <a asp-action="Update" asp-route-makm="@item.Makm" class="btn btn-default" title="Edit">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a asp-action="Delete" asp-route-makm="@item.Makm" class="btn btn-default" title="Delete">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

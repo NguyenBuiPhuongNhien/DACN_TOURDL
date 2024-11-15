@@ -1,0 +1,74 @@
+﻿@model IEnumerable<DO_AN.Models.Phieudattour>
+
+@{
+    ViewData["Title"] = "Danh sách các tour đã đặt";
+    var Listtour = (IEnumerable<DO_AN.Models.Tour>)ViewData["Listtour"];
+}
+
+<h3 class="text-center my-4">Danh sách các tour đã đặt</h3>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Tên Khách hàng</th>
+            <th>Tour đã đặt</th>
+            <th>Khuyến mãi</th>
+            <th>Số người</th>
+            <th>Ngày đặt</th>
+            <th>Tổng tiền</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MakhNavigation.Tenkh)</td>
+                <td>@Html.DisplayFor(modelItem => item.MatourNavigation.Tentour)</td>
+                <td>@Html.DisplayFor(modelItem => item.MakmNavigation.Tenkm)</td>
+                <td>@Html.DisplayFor(modelItem => item.Song)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ngaydat)</td>
+                <td>@item.Tongtien?.ToString("N0") VNĐ</td>
+                @foreach(var item1 in Listtour)
+                {
+                    if(item.Matour == item1.Matour)
+                    {
+                        @if (DateTime.Parse(item1.Ngaykt.ToString()) > DateTime.Now.Date)
+                        {
+                            <td>
+                                <a asp-action="Delete" asp-route-mapdt="@item.Mapdt" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                            break;
+                        }
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .table th, .table td {
+        white-space: nowrap;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table th {
+        background-color: #343a40;
+        color: white;
+    }
+
+    .table td {
+        white-space: nowrap;
+    }
+
+    .btn-sm {
+        margin: 2px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+</style>
+

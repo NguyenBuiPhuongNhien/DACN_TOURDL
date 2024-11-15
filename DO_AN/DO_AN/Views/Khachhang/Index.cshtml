@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DO_AN.Models.Khachhang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    .table-bordered {
+        border: 2px solid black;
+    }
+
+        .table-bordered th,
+        .table-bordered td,
+        .table-bordered thead th {
+            border: 2px solid black;
+        }
+
+    .center-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+</style>
+<h1>Danh sách Khách Hàng</h1>
+
+<p>
+    <a asp-action="Add">Tạo mới</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="border: 2px solid black; text-align: center">Tên khách hàng</th>
+            <th style="border: 2px solid black; text-align: center">Số điện thoại</th>
+            <th style="border: 2px solid black; text-align: center">Địa chỉ</th>
+            <th style="border: 2px solid black; text-align: center">Số tour đã đặt</th>
+            <th style="border: 2px solid black; text-align: center">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="border: 2px solid black;">@Html.DisplayFor(modelItem => item.Tenkh)</td>
+                <td style="border: 2px solid black;">@Html.DisplayFor(modelItem => item.Sdt)</td>
+                <td style="border: 2px solid black;">@Html.DisplayFor(modelItem => item.Dc)</td>
+                <td style="border: 2px solid black;">@Html.DisplayFor(modelItem => item.Sotourdadat)</td>
+                <td style="border: 2px solid black;">
+                    <div class="center-btn">
+                        <a asp-action="Update" asp-route-makh="@item.Makh" class="btn btn-default btn-small" title="Chỉnh sửa">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-makh="@item.Makh" class="btn btn-default btn-small" title="Xóa">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

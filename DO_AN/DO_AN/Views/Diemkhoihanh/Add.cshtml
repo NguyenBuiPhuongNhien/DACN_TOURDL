@@ -1,0 +1,78 @@
+﻿@model DO_AN.Models.Diemkhoihanh
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .table-bordered {
+        border: 2px solid #000;
+    }
+
+        .table-bordered thead th {
+            border: 2px solid #000;
+        }
+
+    /* Loại bỏ hiệu ứng màu khi hover */
+    a:hover {
+        color: inherit !important;
+    }
+</style>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="2" style="border: 2px solid #000;">Thêm điểm khởi hành</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form asp-action="Add">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Tendkh" class="control-label">Tên điểm khởi hành</label>
+                            <input asp-for="Tendkh" class="form-control" />
+                            <span asp-validation-for="Tendkh" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Dc" class="control-label">Địa chỉ</label>
+                            <input asp-for="Dc" class="form-control" />
+                            <span asp-validation-for="Dc" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Sdt" class="control-label">Số điện thoại</label>
+                            <input asp-for="Sdt" class="form-control" />
+                            <span asp-validation-for="Sdt" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a class="btn btn-default" asp-action="Index">Quay lại danh sách</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

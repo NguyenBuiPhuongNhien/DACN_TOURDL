@@ -1,0 +1,79 @@
+﻿@model DO_AN.Models.Diemden
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .table-bordered {
+        border: 2px solid #000;
+    }
+
+        .table-bordered thead th {
+            border: 2px solid #000;
+        }
+
+    /* Loại bỏ hiệu ứng màu khi hover */
+    a:hover {
+        color: inherit !important;
+    }
+
+    /* Thêm các điều chỉnh cho phần hiển thị dữ liệu */
+    .row {
+        margin-bottom: 10px; /* Thêm margin dưới cho mỗi hàng */
+    }
+
+    .col-sm-2 {
+        font-weight: bold; /* Làm nổi bật phần tiêu đề */
+    }
+</style>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="2" style="border: 2px solid #000;">Xóa Điểm Đến</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <h3 style="color:red">Bạn hãy chắc chắn với quyết định của mình. Vì khi xóa dữ liệu sẽ mất hoàn toàn!!!</h3>
+                    <div>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                Tên điểm đến
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Tendd)
+                            </dd>
+                        </dl>
+
+                        <form asp-action="DeleteConfirmed">
+                            <input type="hidden" asp-for="Madd" />
+                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                            <a asp-action="Index" class="btn btn-default">Back to List</a>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DO_AN.Models.Lichtrinh>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style>
+    .table-bordered {
+        border: 2px solid black;
+    }
+
+        .table-bordered th,
+        .table-bordered td,
+        .table-bordered thead th {
+            border: 2px solid black;
+        }
+
+    /* Căn giữa nút trong mỗi dòng */
+    .center-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+</style>
+
+<h1>Lịch Trình</h1>
+
+<p>
+    <a class="btn btn-default" asp-action="Add">Tạo mới</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="border: 2px solid black; text-align: center">Tên lịch trình</th>
+            <th style="border: 2px solid black; text-align: center">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="border: 2px solid black;">@Html.DisplayFor(modelItem => item.Tenlt)</td>
+                <td style="border: 2px solid black;">
+                    <div class="center-btn">
+                        <a asp-action="Update" asp-route-malt="@item.Malt" class="icon btn btn-default btn-small" title="Edit">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-malt="@item.Malt" class="icon btn btn-default btn-small" title="Delete">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,208 @@
+﻿@model IEnumerable<DO_AN.Models.Ctdd>
+
+@{
+    ViewData["Title"] = "Detail";
+    var tour = ViewData["Tour"] as DO_AN.Models.Tour;
+    var ctdtqList = (IEnumerable<DO_AN.Models.CtDtq>)ViewData["CtDtq"];
+    var hinhanhList = (IEnumerable<DO_AN.Models.Hinhanh>)ViewData["Hinhanh"];
+}
+
+<style>
+    .itinerary-day {
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+        .itinerary-day h3 {
+            border-radius: 15px 15px 0 0;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+        }
+
+    .activity {
+        margin-bottom: 20px;
+    }
+
+        .activity h4 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+
+        .activity p {
+            margin-bottom: 10px;
+        }
+
+        .activity img {
+            margin-bottom: 10px;
+            border-radius: 10px;
+            max-width: 100%;
+            height: auto;
+        }
+
+    .section-title {
+        position: relative;
+        display: inline-block;
+        padding: 0 20px;
+    }
+
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: #ddd;
+        }
+
+        .section-title::before {
+            left: -100%;
+            margin-right: 15px;
+        }
+
+        .section-title::after {
+            right: -100%;
+            margin-left: 15px;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+            background: #fff;
+            padding: 0 20px;
+            color: #007bff;
+        }
+
+    .main-section-title {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+        .main-section-title h1 {
+            font-size: 2.5em;
+            color: #007bff;
+            margin: 0;
+        }
+
+    /* Custom styles for the details section */
+    .details-section dl {
+        font-size: 1.2em; /* Increase font size */
+    }
+
+    .details-section dt {
+        font-weight: bold;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="position-relative h-100">
+                <img class="img-fluid position-absolute w-100 h-100" src="@tour.Anhdaidien" alt="Ảnh đại diện" style="object-fit: cover;">
+            </div>
+        </div>
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="d-flex justify-content-center">
+                <h2 class="section-title bg-primary text-white text-center px-3 py-2 rounded">
+                    Thông Tin Tour: <br>@tour.Tentour
+                </h2>
+            </div>
+            <div class="row mt-4 details-section">
+                <div class="col-sm-6">
+                    <dl class="row">
+                        <dt class="col-sm-6 fw-bold text-end">Ngày Bắt Đầu:</dt>
+                        <dd class="col-sm-6">@tour.Ngaykh.ToString("dd/MM/yyyy")</dd>
+                        <dt class="col-sm-6 fw-bold text-end">Ngày Kết Thúc:</dt>
+                        <dd class="col-sm-6">@tour.Ngaykt?.ToString("dd/MM/yyyy")</dd>
+                        <dt class="col-sm-6 fw-bold text-end">Tổng thời gian:</dt>
+                        @if (tour.Sodem == 0)
+                        {
+                            <dd class="col-sm-6">@tour.Songay Ngày</dd>
+                        }
+                        else
+                        {
+                            <dd class="col-sm-6">@tour.Songay Ngày/ @tour.Sodem Đêm</dd>
+                        }
+                        <dt class="col-sm-6 fw-bold text-end">Số Chỗ Đã Đặt:</dt>
+                        <dd class="col-sm-6">@tour.Sochodadat</dd>
+                        <dt class="col-sm-6 fw-bold text-end">Số Lượng Tối Đa:</dt>
+                        <dd class="col-sm-6">@tour.Soluongtoida</dd>
+                    </dl>
+                </div>
+                <div class="col-sm-6">
+                    <dl class="row">
+                        <dt class="col-sm-6 fw-bold text-end">Giá:</dt>
+                        <dd class="col-sm-6">@tour.Gia?.ToString("N0") VNĐ</dd>
+                        <dt class="col-sm-6 fw-bold text-end">Đơn Vị Tính:</dt>
+                        <dd class="col-sm-6">@tour.Dvt</dd>
+                        <dt class="col-sm-6 fw-bold text-end">Điểm khởi hành:</dt>
+                        <dd class="col-sm-6">@tour.MadkhNavigation.Tendkh</dd>
+                        <dt class="col-sm-6 fw-bold text-end">Loại Tour:</dt>
+                        <dd class="col-sm-6">@tour.MaloaiNavigation.Tenloai</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="mt-4 text-end">
+                <a href="@Url.Action("Add", "Phieudattour", new { matour = tour.Matour })" class="btn btn-sm btn-outline-primary px-3" style="border-radius: 30px;">Đặt Ngay</a>
+                <a href="/" class="btn btn-secondary">Quay về Trang Chủ</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="main-section-title">
+        <h1>Lịch Trình Chi Tiết @tour.MaltNavigation.Tenlt</h1>
+    </div>
+    <div class="row g-5">
+        <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+            @foreach (var lichtrinh in Model.OrderBy(c => c.Thutu).GroupBy(c => c.Thutu))
+            {
+                <div class="itinerary-day">
+                    <h3 class="text-center">Ngày @lichtrinh.Key</h3>
+                    <div class="row">
+                        @foreach (var ctdd in lichtrinh)
+                        {
+                            <div class="col-lg-12">
+                                <div class="activity">
+                                    <h4>Chi tiết</h4>
+                                    <h5>@Html.Raw(ctdd.MadtqNavigation.Thongtinct?.Replace("\n", "<br>"))</h5>
+                                    <h4>Điểm tham quan - Khách sạn</h4>
+                                    <h5>Quý du khách sẽ được trải nghiệm không gian tuyệt vời và những tiện nghi cùng chất lượng phục vụ của khách sạn @ctdd.MaksNavigation.Tenks ở @ctdd.MadtqNavigation.Tendtq</h5> <!-- Lấy thông tin điểm tham quan từ bảng Diemthamquan -->
+                                    <!-- Hiển thị các chi tiết điểm tham quan -->
+                                    @foreach (var ctdtqItem in ctdtqList)
+                                    {
+                                        if (ctdtqItem.Madtq == ctdd.Madtq)
+                                        {
+                                            <h4>Địa điểm tham quan vào ngày @lichtrinh.Key: @ctdtqItem.MadlNavigation.Tendl</h4>
+                                            <h5>@Html.Raw(ctdtqItem.Motachitiet?.Replace("\n", "<br>"))</h5>
+                                            <div class="row">
+                                                @foreach (var hinhanh in hinhanhList)
+                                                {
+                                                    if (hinhanh.Madl == ctdtqItem.Madl)
+                                                    {
+                                                        <div class="col-4 mb-3">
+                                                            <img src="@hinhanh.Url" alt="Ảnh đại diện" style="width: 400px; height: 300px;" />
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

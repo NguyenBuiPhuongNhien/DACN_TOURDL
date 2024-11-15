@@ -1,0 +1,250 @@
+﻿@model IEnumerable<DO_AN.Models.Tour>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+    }
+
+    .col-md-9 {
+        border: 1px solid #000;
+        padding: 15px; /* Tạo khoảng cách giữa nội dung và viền */
+        border-radius: 8px; /* Làm tròn góc viền */
+        background-color: #fff; /* Nền trắng cho phần nội dung */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng để tạo hiệu ứng */
+    }
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 50px auto;
+    }
+
+    .search-container {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+     .btn-bro {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+    } 
+
+         .btn-bro:hover {
+            background-color: #0056b3;
+        }
+ 
+    .tour-card {
+         border: 1px ; 
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #fff;
+         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng để tạo hiệu ứng */ 
+    }
+
+        .tour-card img {
+            border-bottom: 1px solid #ddd;
+            border-radius: 10px;
+            width: 300px; /* Chiều rộng nhỏ lại */
+            height: 300px; /* Chiều cao nhỏ lại */
+            object-fit: cover;
+        }
+
+    .tour-info {
+        padding: 15px;
+        position: relative; /* Cần thiết cho định vị tuyệt đối của giá */
+    }
+
+        .tour-info h3 {
+            color: #008000;
+            margin-bottom: 17px;
+        }
+
+        .tour-info p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .tour-info p {
+            margin-bottom: 10px;
+            font-size: 14px; /* Tăng cỡ chữ lên */
+        }
+
+    .tour-actions {
+        margin-top: 15px;
+    }
+
+        .tour-actions a {
+            margin-right: 10px;
+        }
+
+    .icon {
+        margin-right: 5px;
+        color: #008000;
+    }
+
+    .tour-price {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        font-size: 60px; /* Tăng cỡ chữ lên */
+        color: #FFA500; /* Màu cam */
+    }
+
+    .table-bordered th, .table-bordered td {
+        border: 2px solid #000;
+    }
+
+    .table thead th {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .dropdown-item {
+        cursor: pointer;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="search-container">
+                <h2>Tìm kiếm Tour</h2>
+                <form method="post" asp-action="Timkiem" class="mt-4">
+                    <div class="form-group">
+                        <label for="madkh" class="form-label">Điểm khởi hành</label>
+                        <select class="form-select" id="madkh" name="madkh">
+                            <option value=""> Chọn điểm khởi hành </option>
+                            @foreach (var item in ViewBag.Diemkhoihanh)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="madd" class="form-label">Điểm đến</label>
+                        <select class="form-select" id="madd" name="madd">
+                            <option value=""> Chọn điểm đến </option>
+                            @foreach (var item in ViewBag.Diemden)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="maloai" class="form-label">Loại Tour</label>
+                        <select class="form-select" id="maloai" name="maloai">
+                            <option value=""> Chọn loại tour </option>
+                            @foreach (var item in ViewBag.Loaitour)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="madl" class="form-label">Danh lam thắng cảnh</label>
+                        <select class="form-select" id="madl" name="madl">
+                            <option value=""> Chọn danh lam</option>
+                            @foreach (var item in ViewBag.Danhlamtc)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="madtq" class="form-label">Điểm tham quan</label>
+                        <select class="form-select" id="madtq" name="madtq">
+                            <option value=""> Chọn điểm tham quan </option>
+                            @foreach (var item in ViewBag.Diemthamquan)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn-bro">Tìm kiếm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="d-flex justify-content-center flex-wrap">
+                @if (Model == null || Model.Count() == 0)
+                {
+                    <div class="text-center">
+                        <h1>Không có tour nào được tìm thấy.</h1>
+                        <img src="~/images/ff.jpg" alt="No tours available" class="img-fluid" />
+                       
+                    </div>
+                }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="tour-card m-3">
+                            <div class="row">
+                                <!-- Phần 1: Hiển thị ảnh đại diện -->
+                                <div class="col-md-4">
+                                    <a href="@Url.Action("Detail", "Ctdd", new { matour = item.Matour })">
+                                        <!-- Thay đổi đường dẫn và tham số theo định dạng của bạn -->
+                                        <img src="@item.Anhdaidien" alt="Ảnh đại diện" class="img-fluid rounded" />
+                                    </a>
+                                </div>
+
+                                <!-- Phần 2: Hiển thị thông tin -->
+                                <div class="col-md-8 tour-info">
+                                    <a href="@Url.Action("Detail", "Ctdd", new { matour = item.Matour })">
+                                        <!-- Thay đổi đường dẫn và tham số theo định dạng của bạn -->
+                                        <h3>@Html.DisplayFor(modelItem => item.Tentour)</h3>
+                                        <p><i class="fas fa-map-marker-alt icon"></i> @Html.DisplayFor(modelItem => item.MadkhNavigation.Tendkh)</p>
+                                        <p><i class="fas fa-calendar-alt icon"></i> @Html.DisplayFor(modelItem => item.Ngaykh)</p>
+                                        <p><i class="fas fa-calendar-check icon"></i> @Html.DisplayFor(modelItem => item.Ngaykt)</p>
+                                        <p><i class="fas fa-users icon"></i> @Html.DisplayFor(modelItem => item.Sochodadat)</p>
+                                        <p class="tour-price" style="font-size: 30px"><i class="fas fa-dollar-sign icon"></i> @string.Format("{0:0,0}", item.Gia) VND</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

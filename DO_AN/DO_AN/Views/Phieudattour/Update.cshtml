@@ -1,0 +1,110 @@
+﻿@model DO_AN.Models.Phieudattour
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Chỉnh sửa</h1>
+
+<h4>Phieudattour</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Mapdt" />
+            <div class="form-group">
+                <label asp-for="Matour" class="control-label"></label>
+                <select asp-for="Matour" class="form-control" asp-items="ViewBag.Tours"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Makh" class="control-label"></label>
+                <select asp-for="Makh" class="form-control" asp-items="ViewBag.Khachhangs"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Makm" class="control-label"></label>
+                <input asp-for="Makm" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Song" class="control-label"></label>
+                <input asp-for="Song" class="form-control" id="Song" />
+                <span asp-validation-for="Song" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tongtien" class="control-label"></label>
+                <input asp-for="Tongtien" class="form-control" id="Tongtien" readonly />
+                <span asp-validation-for="Tongtien" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dvt" class="control-label"></label>
+                <input asp-for="Dvt" class="form-control" id="Dvt" readonly />
+                <span asp-validation-for="Dvt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let gia = 0;
+            let dvt = '';
+
+            function getTourDetails(matour) {
+                if (matour) {
+                    $.ajax({
+                        url: '@Url.Action("GetTourGia")',
+                        type: 'GET',
+                        data: { matour: matour },
+                        success: function (response) {
+                            if (response.success) {
+                                gia = response.gia;
+                                dvt = response.dvt;
+                                $('#Dvt').val(dvt);
+                                calculateTotal();
+                            } else {
+                                alert(response.message);
+                            }
+                        }
+                    });
+                }
+            }
+
+            function calculateTotal() {
+                const song = $('#Song').val();
+                if (song && gia) {
+                    const tongtien = song * gia;
+                    $('#Tongtien').val(tongtien);
+                }
+            }
+
+            // On page load, check if Matour has a value and get details if it does
+            const initialMatour = $('#Matour').val();
+            if (initialMatour) {
+                getTourDetails(initialMatour);
+            }
+
+            $('#Matour').change(function () {
+                const matour = $(this).val();
+                getTourDetails(matour);
+            });
+
+            $('#Song').on('input', function () {
+                calculateTotal();
+            });
+        });
+    </script>
+}
+

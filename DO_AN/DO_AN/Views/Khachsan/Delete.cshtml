@@ -1,0 +1,76 @@
+﻿@model DO_AN.Models.Khachsan
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 100%; /* Thêm đoạn mã này */
+        padding: 0 15px; /* Thêm đoạn mã này */
+    }
+
+    .table-bordered {
+        border: 2px solid #000;
+    }
+
+        .table-bordered thead th {
+            border: 2px solid #000;
+        }
+
+    /* Loại bỏ hiệu ứng màu khi hover */
+    a:hover {
+        color: inherit !important;
+    }
+</style>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="2" style="border: 2px solid #000;">Xóa Khách Sạn</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <h3 style="color:red">Bạn hãy chắc chắn với quyết định của mình. Vì khi xóa dữ liệu sẽ mất hoàn toàn!!!</h3>
+                    <div>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                Tên Khách sạn:
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Tenks)
+                            </dd>
+                            <dt class="col-sm-2">
+                                Địa chỉ:
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Dc)
+                            </dd>
+                        </dl>
+
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Maks" />
+                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                            <a asp-action="Index" class="btn btn-default">Quay lại danh sách</a>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

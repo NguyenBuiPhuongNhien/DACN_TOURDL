@@ -1,0 +1,100 @@
+﻿@model IEnumerable<DO_AN.Models.Tour>
+
+@{
+    ViewData["Title"] = "IndexAdmin";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <!-- Các liên kết khác -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    .tour-card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        overflow: hidden;
+        max-width: 1200px; /* Đặt chiều rộng tối đa */
+        max-height:800px
+    }
+
+        .tour-card img {
+            border-bottom: 1px solid #ddd;
+            border-radius: 10px;
+            width: 200px; /* Chiều rộng nhỏ lại */
+            height: 250px; /* Chiều cao nhỏ lại */
+            object-fit: cover;
+        }
+
+    .tour-info {
+        padding: 15px;
+        position: relative; /* Cần thiết cho định vị tuyệt đối của giá */
+    }
+
+        .tour-info h3 {
+            color: #008000;
+            margin-bottom: 17px;
+        }
+
+        .tour-info p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .tour-info p {
+            margin-bottom: 10px;
+            font-size: 14px; /* Tăng cỡ chữ lên */
+        }
+
+    .tour-actions {
+        margin-top: 15px;
+    }
+
+        .tour-actions a {
+            margin-right: 10px;
+        }
+
+    .icon {
+        margin-right: 5px;
+        color: #008000;
+    }
+
+    .tour-price {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        font-size: 40px; /* Tăng cỡ chữ lên */
+        color: #FFA500; /* Màu cam */
+    }
+</style>
+
+<h1 style="color: #008000;">TOURS</h1>
+
+<p >
+    <a asp-action="Add" class="btn btn-success">Create New</a>
+</p>
+
+<div class="d-flex justify-content-center flex-wrap">
+    @foreach (var item in Model)
+    {
+        <div class="tour-card m-3">
+            <div class="row">
+                <!-- Phần 1: Hiển thị ảnh đại diện -->
+                <div class="col-md-4">
+                    <img src="@item.Anhdaidien" alt="Ảnh đại diện" class="img-fluid rounded" />
+                </div>
+
+                <!-- Phần 2: Hiển thị thông tin -->
+                <div class="col-md-8 tour-info">
+                    <h3>@Html.DisplayFor(modelItem => item.Tentour)</h3>
+                    <p><i class="fas fa-map-marker-alt icon"></i> @Html.DisplayFor(modelItem => item.MadkhNavigation.Tendkh)</p>
+                    <p><i class="fas fa-calendar-alt icon"></i> @Html.DisplayFor(modelItem => item.Ngaykh)</p>
+                    <p><i class="fas fa-calendar-check icon"></i> @Html.DisplayFor(modelItem => item.Ngaykt)</p>
+                    <p><i class="fas fa-users icon"></i> @Html.DisplayFor(modelItem => item.Sochodadat)</p>
+                    <p class="tour-price" style="font-size: 30px"><i class="fas fa-dollar-sign icon"></i> @string.Format("{0:0,0}", item.Gia) VND</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

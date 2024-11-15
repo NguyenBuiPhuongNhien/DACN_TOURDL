@@ -1,0 +1,66 @@
+﻿@model IEnumerable<DO_AN.Models.Ctdd>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-wcS6Jj+M4XT7Y06HnOvSSDQw5/E7otnjAIQmX5o8PjvlY3d+wno5aXNMfCafDdtDvlq0UbC6B2imMzll2XEy7w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    .btn-primary {
+        border-radius: 30px; /* Điều chỉnh giá trị để thay đổi độ cong của góc */
+        padding: 10px 20px; /* Điều chỉnh giá trị để thay đổi kích thước của button */
+    }
+</style>
+<h1>Chi tiết điểm đến</h1>
+
+<p>
+    <a asp-action="Add" class="btn btn-primary"><i class="fas fa-plus"></i> Tạo mới</a>
+</p>
+ 
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                Điểm tham quan
+            </th>
+            <th>
+                Lịch trình
+            </th>
+            <th>
+                Khách sạn
+            </th>
+            <th>
+                Ngày thứ
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+                <td style="border: 2px solid black;">
+                @Html.DisplayFor(modelItem => item.MadtqNavigation.Tendtq)
+            </td>
+                <td style="border: 2px solid black;">
+                    @Html.DisplayFor(modelItem => item.MaltNavigation.Tenlt)
+                </td>
+                <td style="border: 2px solid black;">
+                @Html.DisplayFor(modelItem => item.MaksNavigation.Tenks)
+            </td>
+                <td style="border: 2px solid black;">
+                    @Html.DisplayFor(modelItem => item.Thutu)
+                </td>
+                <td style="border: 2px solid black;">
+                @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+                    <a asp-action="Update" asp-route-malt="@item.Malt" asp-route-madtq="@item.Madtq" asp-route-maks="@item.Maks">Edit</a> |
+                    <a asp-action="Delete" asp-route-malt="@item.Malt" asp-route-madtq="@item.Madtq" asp-route-maks="@item.Maks">Delete</a>
+
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

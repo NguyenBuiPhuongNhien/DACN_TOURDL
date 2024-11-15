@@ -1,0 +1,125 @@
+﻿@model DO_AN.Models.Danhgia
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .table-bordered {
+        border: 2px solid #000;
+    }
+
+        .table-bordered thead th {
+            border: 2px solid #000;
+            text-align: center;
+            font-size: 24px; /* Tăng kích thước chữ */
+        }
+
+
+    a:hover {
+        color: inherit !important;
+    }
+</style>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="2" style="border: 2px solid #000;">Thêm dnah giá</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+        <form id="addForm" asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Makh" class="control-label"> Khách hàng</label>
+                <select asp-for="Makh" class="form-control" asp-items="ViewBag.Khachhangs"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Matour" class="control-label"> Tour</label>
+                <select asp-for="Matour" class="form-control" asp-items="ViewBag.Tours"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Noidungdanhgia" class="control-label"> Nội dung</label>
+                <input asp-for="Noidungdanhgia" class="form-control" />
+                <span asp-validation-for="Noidungdanhgia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sosao" class="control-label"> Đánh giá của khách hàng</label>
+                <input asp-for="Sosao" class="form-control" />
+                <span asp-validation-for="Sosao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="button" value="Create" class="btn btn-primary" id="createButton" />
+            </div>
+        </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a class="btn btn-default" asp-action="Index">Quay lại danh sách</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#createButton').click(function () {
+                $.ajax({
+                    url: '@Url.Action("Add")',
+                    type: 'POST',
+                    data: $('#addForm').serialize(),
+                    success: function (response) {
+                        if (response.success) {
+                            Swal.fire({
+                                title: 'Thành công!',
+                                text: 'Bạn đã thêm đánh giá thành công.',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '@Url.Action("Index")';
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Lỗi!',
+                                text: response.message,
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    },
+                    error: function () {
+                        Swal.fire({
+                            title: 'Lỗi!',
+                            text: 'Đã xảy ra lỗi. Vui lòng thử lại.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

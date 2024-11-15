@@ -1,0 +1,51 @@
+﻿@model DO_AN.Models.Ctdd
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Xóa điểm đến</h1>
+
+<h3>Bạn hãy chắc chắn với quyết định của mình. Vì khi xóa dữ liệu sẽ mất hoàn toàn!!!</h3>
+<div>
+    <h4>Ctdd</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Điểm Tham quan: 
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MadtqNavigation.Tendtq)
+        </dd>
+        <dt class="col-sm-2">
+            Lịch trình: 
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaltNavigation.Tenlt)
+        </dd>
+        <dt class="col-sm-2">
+            Khách sạn:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaksNavigation.Tenks)
+        </dd>
+        <dt class = "col-sm-2">
+            Ngày thứ
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Thutu)
+        </dd>
+       
+       
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Malt" />
+        <input type="hidden" asp-for="Maks" />
+        <input type="hidden" asp-for="Madtq" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

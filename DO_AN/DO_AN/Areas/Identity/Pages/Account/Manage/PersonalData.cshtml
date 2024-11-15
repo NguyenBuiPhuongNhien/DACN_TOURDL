@@ -1,0 +1,107 @@
+﻿@page
+@model DO_AN.Areas.Identity.Pages.Account.Manage.PersonalDataModel
+@{
+    ViewData["Title"] = "Hồ sơ cá nhân";
+}
+
+
+<h1 class="text-center dark-blue" style="font-size: 2em;">Hồ Sơ</h1>
+
+<div class="container mt-4 bg-white p-4">
+    <div class="row">
+        @if (User.IsInRole("Admin") || User.IsInRole("Nhân viên"))
+        {
+            <div class="col-md-6">
+                <h4 class="dark-blue">Nhân viên</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4 dark-blue">
+                        Tên nhân viên
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Nhanvien.Tennv)
+                    </dd>
+                    <dt class="col-sm-4 dark-blue">
+                        Ngày sinh
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Nhanvien.Ngaysinh)
+                    </dd>
+                    <dt class="col-sm-4 dark-blue">
+                        Giới tính
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Nhanvien.Gioitinh)
+                    </dd>
+                    <dt class="col-sm-4 dark-blue">
+                        Số điện thoại
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Nhanvien.Sdt)
+                    </dd>
+                    <dt class="col-sm-4 dark-blue">
+                        Địa chỉ
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Nhanvien.Dc)
+                    </dd>
+                </dl>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-6">
+                <h4 class="dark-blue">Khách hàng</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4 dark-blue">
+                        Tên nhân viên
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Khachhang.Tenkh)
+                    </dd>
+                    <dt class="col-sm-4 dark-blue">
+                        Số điện thoại
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Khachhang.Sdt)
+                    </dd>
+                    <dt class="col-sm-4 dark-blue">
+                        Địa chỉ
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Khachhang.Dc)
+                    </dd>
+                    <dt class="col-sm-4 dark-blue">
+                        Số tour đã đặt
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Khachhang.Sotourdadat)
+                    </dd>
+                </dl>
+            </div>
+        }
+        <div class="col-md-6">
+            <h4 class="dark-blue">Hoạt động thường xuyên</h4>
+            <hr />
+            <div class="row section-gap">
+                <partial name="_ManageNav" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    .dark-blue {
+        color: #00008b;
+    }
+
+    .bg-white {
+        background-color: white;
+    }
+</style>

@@ -1,0 +1,95 @@
+﻿@model DO_AN.Models.Tour
+
+@{
+    ViewData["Title"] = "Display";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Hiển Thị Tour</h1>
+
+<div>
+    <h4>Tour</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tên tour:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tentour)
+        </dd>
+        <dt class="col-sm-2">
+            Loại tour:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaloaiNavigation.Maloai)
+        </dd>
+        <dt class="col-sm-2">
+            Điểm khởi hành:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MadkhNavigation.Madkh)
+        </dd>
+
+        <dt class="col-sm-2">
+            Ngày khởi hành
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ngaykh)
+        </dd>
+        <dt class="col-sm-2">
+            Ngày kết thúc
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ngaykt)
+        </dd>
+
+        @if (Model.Sodem != 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Songay) Ngày/ @Html.DisplayNameFor(model => model.Sodem) Đêm
+            </dt>
+        }
+        else
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Songay)
+            </dt>
+        }
+        <dt class="col-sm-2">
+            Số lượng tối đa
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Soluongtoida)
+        </dd>
+        <dt class="col-sm-2">
+            Số chỗ đã đặt
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sochodadat)
+        </dd>
+        <dt class="col-sm-2">
+            Giá
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+        <dt class="col-sm-2">
+            Đơn vị tính
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dvt)
+        </dd>
+        <dt class="col-sm-2">
+            Ảnh đại diện
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Anhdaidien)
+        </dd>
+
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Update" asp-route-matour="@Model?.Matour">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

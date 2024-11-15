@@ -1,0 +1,60 @@
+﻿@model DO_AN.Models.Phieudattour
+
+@{
+    ViewData["Title"] = "Display";
+}
+
+<h1>Hiển Thị Phiếu Đặt</h1>
+
+<div>
+    <h4>Phieudattour</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Song)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Song)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ngaydat)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ngaydat)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tongtien)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tongtien)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dvt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dvt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MakhNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MakhNavigation.Makh)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MakmNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MakmNavigation.Makm)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MatourNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MatourNavigation.Tentour)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Update" asp-route-mapdt="@Model?.Mapdt">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

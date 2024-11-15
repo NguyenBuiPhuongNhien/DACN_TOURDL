@@ -1,0 +1,237 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|c:\\users\\lta24\\onedrive\\desktop\\cv\\baocaot4\\baocaot4\\baocaot4\\do_an\\do_an\\do_an\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|solutionrelative:do_an\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|c:\\users\\lta24\\onedrive\\desktop\\cv\\baocaot4\\baocaot4\\baocaot4\\do_an\\do_an\\do_an\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|solutionrelative:do_an\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|c:\\users\\lta24\\onedrive\\desktop\\cv\\baocaot4\\baocaot4\\baocaot4\\do_an\\do_an\\do_an\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|solutionrelative:do_an\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|c:\\users\\lta24\\onedrive\\desktop\\cv\\baocaot4\\baocaot4\\baocaot4\\do_an\\do_an\\do_an\\models\\doancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|solutionrelative:do_an\\models\\doancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|c:\\users\\lta24\\onedrive\\desktop\\cv\\baocaot4\\baocaot4\\baocaot4\\do_an\\do_an\\do_an\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|solutionrelative:do_an\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|c:\\users\\lta24\\onedrive\\desktop\\cv\\baocaot4\\baocaot4\\baocaot4\\do_an\\do_an\\do_an\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|solutionrelative:do_an\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|c:\\users\\lta24\\onedrive\\desktop\\cv\\baocaot4\\baocaot4\\baocaot4\\do_an\\do_an\\do_an\\areas\\identity\\pages\\account\\confirmemail.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|solutionrelative:do_an\\areas\\identity\\pages\\account\\confirmemail.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|c:\\users\\lta24\\onedrive\\desktop\\cv\\baocaot4\\baocaot4\\baocaot4\\do_an\\do_an\\do_an\\areas\\identity\\pages\\account\\confirmemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|solutionrelative:do_an\\areas\\identity\\pages\\account\\confirmemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|c:\\users\\lta24\\onedrive\\desktop\\cv\\baocaot4\\baocaot4\\baocaot4\\do_an\\do_an\\do_an\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7AF52BD7-E15E-48F0-B2EF-13B5AE477B06}|DO_AN\\DO_AN.csproj|solutionrelative:do_an\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 23,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "DO_AN\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeToolTip": "DO_AN\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAUwF0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T12:47:23.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "DO_AN\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "DO_AN\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T12:47:18.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ConfirmEmail.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml.cs",
+              "RelativeDocumentMoniker": "DO_AN\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml.cs",
+              "ToolTip": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml.cs",
+              "RelativeToolTip": "DO_AN\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T12:46:54.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ConfirmEmail.cshtml",
+              "DocumentMoniker": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+              "RelativeDocumentMoniker": "DO_AN\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+              "ToolTip": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+              "RelativeToolTip": "DO_AN\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T12:46:48.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DoAnContext.cs",
+              "DocumentMoniker": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Models\\DoAnContext.cs",
+              "RelativeDocumentMoniker": "DO_AN\\Models\\DoAnContext.cs",
+              "ToolTip": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Models\\DoAnContext.cs",
+              "RelativeToolTip": "DO_AN\\Models\\DoAnContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T12:45:45.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MessageController.cs",
+              "DocumentMoniker": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Controllers\\MessageController.cs",
+              "RelativeDocumentMoniker": "DO_AN\\Controllers\\MessageController.cs",
+              "ToolTip": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Controllers\\MessageController.cs",
+              "RelativeToolTip": "DO_AN\\Controllers\\MessageController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T12:17:42.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "DO_AN\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "DO_AN\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T12:12:40.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "DO_AN\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "DO_AN\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAUwJ0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T12:09:38.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Program.cs",
+              "RelativeDocumentMoniker": "DO_AN\\Program.cs",
+              "ToolTip": "C:\\Users\\lta24\\OneDrive\\Desktop\\CV\\BAOCAOT4\\BAOCAOT4\\BAOCAOT4\\DO_AN\\DO_AN\\DO_AN\\Program.cs",
+              "RelativeToolTip": "DO_AN\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T12:07:48.479Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

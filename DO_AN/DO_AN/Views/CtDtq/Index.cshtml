@@ -1,0 +1,107 @@
+﻿@model IEnumerable<DO_AN.Models.CtDtq>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    .table-bordered {
+        border: 2px solid black;
+    }
+
+        .table-bordered th,
+        .table-bordered td,
+        .table-bordered thead th {
+            border: 2px solid black;
+        }
+
+    /* Kích thước icon */
+    .icon {
+        font-size: 12px; /* Điều chỉnh kích thước tùy ý */
+    }
+
+        /* Loại bỏ hiệu ứng màu khi di chuột qua */
+        .icon:hover {
+            color: inherit !important;
+        }
+
+    /* Kích thước button */
+    .btn-small {
+        padding: 2px 4px; /* Điều chỉnh kích thước tùy ý */
+        font-size: 10px; /* Điều chỉnh kích thước chữ tùy ý */
+    }
+
+    /* Tăng kích thước của ô chứa các chức năng */
+    .function-cell {
+        width: 100px; /* Điều chỉnh kích thước tùy ý */
+        text-align: center; /* Canh giữa nội dung trong ô */
+    }
+</style>
+<h1>Điểm Đến</h1>
+
+<p>
+    <a asp-action="Add">Tạo mới</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="border: 2px solid black;text-align: center">
+                Điểm tham quan
+            </th>
+            <th style="border: 2px solid black;text-align: center">
+                Danh lam thắng cảnh
+            </th>
+            <th style="border: 2px solid black;text-align: center">
+                Mô tả 
+            </th>
+            <th style="border: 2px solid black;text-align: center">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MadtqNavigation.Tendtq)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MadlNavigation.Tendl)
+                </td>
+            <td>
+                    @Html.Raw(ConvertToHtml(item.Motachitiet))
+              
+            </td>
+            
+            
+            <td>
+                @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+                    @* <a asp-action="Update" asp-route-madl="@item.Madl" asp-route-madtq="@item.Madtq">Edit</a> |
+                    <a asp-action="Delete" asp-route-madl="@item.Madl" asp-route-madtq="@item.Madtq">Delete</a> *@
+                    <div class="center-btn">
+                        <a asp-action="Update" asp-route-madl="@item.Madl" asp-route-madtq="@item.Madtq" class="icon btn btn-default btn-small" title="Edit">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-madl="@item.Madl" asp-route-madtq="@item.Madtq" class="icon btn btn-default btn-small" title="Delete">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                    </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@functions {
+    private string ConvertToHtml(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return string.Empty;
+        }
+
+        return input.Replace("\n", "<br />");
+    }
+}

@@ -1,0 +1,69 @@
+﻿@model DO_AN.Models.Phuongtiendc
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 100%; /* Thêm đoạn mã này */
+        padding: 0 15px; /* Thêm đoạn mã này */
+    }
+
+    .table-bordered {
+        border: 2px solid #000;
+    }
+
+        .table-bordered thead th {
+            border: 2px solid #000;
+            text-align: center;
+            font-size: 24px; /* Tăng kích thước chữ */
+        }
+    /* Loại bỏ hiệu ứng màu khi hover */
+    a:hover {
+        color: inherit !important;
+    }
+</style>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="2" style="border: 2px solid #000;">Thêm phương tiện</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form asp-action="Add">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Tenpt" class="control-label"></label>
+                            <input asp-for="Tenpt" class="form-control" />
+                            <span asp-validation-for="Tenpt" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a class="btn btn-default" asp-action="Index">Quay lại danh sách</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

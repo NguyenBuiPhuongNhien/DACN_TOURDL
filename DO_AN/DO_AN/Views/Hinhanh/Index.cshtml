@@ -1,0 +1,42 @@
+﻿@model IEnumerable<DO_AN.Models.Hinhanh>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Quản lý Hình Ảnh</h1>
+
+<p>
+    <a asp-action="Add">Tạo mới</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="border: 2px solid black; text-align: center">Danh lam</th>
+            <th style="border: 2px solid black; text-align: center">Hình Ảnh</th>
+            <th style="border: 2px solid black; text-align: center">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="border: 2px solid black;">@item.Madl</td>
+                <td style="border: 2px solid black;">
+                    <img src="@item.Url" alt="Hình Ảnh" style="max-width:200px;" />
+                </td>
+                <td style="border: 2px solid black;">
+                    <div class="center-btn">
+                        <a asp-action="Update" asp-route-mah="@item.Mah" class="btn btn-default btn-small" title="Chỉnh sửa">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-mah="@item.Mah" class="btn btn-default btn-small" title="Xóa">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

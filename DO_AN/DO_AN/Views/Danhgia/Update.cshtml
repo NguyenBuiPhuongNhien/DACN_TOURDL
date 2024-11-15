@@ -1,0 +1,40 @@
+﻿@model DO_AN.Models.Danhgia
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Chỉnh sửa Đánh Giá</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Makh" />
+            <input type="hidden" asp-for="Matour" />
+            <div class="form-group">
+                <label asp-for="Noidungdanhgia" class="control-label"> Nội dung </label>
+                <input asp-for="Noidungdanhgia" class="form-control" />
+                <span asp-validation-for="Noidungdanhgia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sosao" class="control-label"> Số sao</label>
+                <input asp-for="Sosao" class="form-control" />
+                <span asp-validation-for="Sosao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,71 @@
+﻿@model DO_AN.Models.Danhlamtc
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .table-bordered {
+        border: 2px solid #000;
+    }
+
+        .table-bordered thead th {
+            border: 2px solid #000;
+            text-align: center;
+            font-size: 24px; /* Tăng kích thước chữ */
+        }
+
+    a:hover {
+        color: inherit !important;
+    }
+</style>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="2" style="border: 2px solid #000;">Xóa danh lam</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <h3 style="color:red">Bạn hãy chắc chắn với quyết định của mình. Vì khi xóa dữ liệu sẽ mất hoàn toàn!!!</h3>
+                    <div>
+                        <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Danh lam
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tendl)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteConfirmed">
+        <input type="hidden" asp-for="Madl" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

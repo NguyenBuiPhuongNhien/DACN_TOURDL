@@ -1,0 +1,75 @@
+﻿@model IEnumerable<DO_AN.Models.Huongdan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style>
+    .table-bordered {
+        border: 2px solid black;
+    }
+
+        .table-bordered th,
+        .table-bordered td,
+        .table-bordered thead th {
+            border: 2px solid black;
+        }
+
+    /* Căn giữa nút trong mỗi dòng */
+    .center-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+</style>
+<p>
+    <a asp-action="Add">Tạo mới</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="border: 2px solid black; text-align: center">Nhân viên</th>
+            <th style="border: 2px solid black; text-align: center">Tour</th>
+            <th style="border: 2px solid black; text-align: center">Nhiệm vụ</th>
+            <th style="border: 2px solid black; text-align: center">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="border: 2px solid black;">@Html.DisplayFor(modelItem => item.ManvNavigation.Tennv)</td>
+                <td style="border: 2px solid black;">@Html.DisplayFor(modelItem => item.MatourNavigation.Tentour)</td>
+                <td style="border: 2px solid black;">@Html.Raw(ConvertToHtml(item.Nhiemvu))</td>
+                <td style="border: 2px solid black;">
+                    <div class="center-btn">
+                        <a asp-action="Update" asp-route-manv="@item.Manv" asp-route-matour="@item.Matour" class="icon btn btn-default btn-small" title="Edit">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-manv="@item.Manv" asp-route-matour="@item.Matour" class="icon btn btn-default btn-small" title="Delete">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@functions {
+    private string ConvertToHtml(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return string.Empty;
+        }
+
+        return input.Replace("\n", "<br />");
+    }
+}

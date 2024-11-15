@@ -1,0 +1,49 @@
+﻿@model DO_AN.Models.Nhanvien
+
+@{
+    ViewData["Title"] = "Display";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Hiển Thị Thông Tin</h1>
+
+<div>
+    <h4>Nhanvien</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tên nhân viên
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tennv)
+        </dd>
+        <dt class="col-sm-2">
+            Ngày sinh
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ngaysinh)
+        </dd>
+        <dt class="col-sm-2">
+            Giới tính
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gioitinh)
+        </dd>
+        <dt class="col-sm-2">
+            Số điện thoại
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sdt)
+        </dd>
+        <dt class="col-sm-2">
+            Địa chỉ
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Update" asp-route-manv="@Model?.Manv">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

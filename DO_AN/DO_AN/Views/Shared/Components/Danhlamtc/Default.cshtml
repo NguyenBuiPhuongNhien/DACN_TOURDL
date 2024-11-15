@@ -1,0 +1,6 @@
+﻿@model IEnumerable<DO_AN.Models.Danhlamtc>
+
+@foreach (var danhlamtc in Model)
+{
+    <li><a class="dropdown-item" asp-controller="Tour" asp-action="IndexDanhlamtc" asp-route-Diemden="@danhlamtc.Madl">@danhlamtc.Tendl</a></li>
+}

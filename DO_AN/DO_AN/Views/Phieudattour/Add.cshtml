@@ -1,0 +1,241 @@
+﻿@model DO_AN.Models.Phieudattour
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@{
+    ViewData["Title"] = "Phiếu đặt tour";
+    var tour = ViewData["Tour"] as DO_AN.Models.Tour;
+}
+@{
+    string sdt = "";
+    string hoten = "";
+    int makh = 1;
+    if (SignInManager.IsSignedIn(User))
+    {
+        var user = await UserManager.GetUserAsync(User);
+        if (user != null)
+        {
+            sdt = user.Sdt;
+            hoten = user.FullName;
+        }
+    }
+}
+
+<!-- Lightbox2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
+<!-- Lightbox2 JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<style>
+    .tour-container {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+    .tour-image {
+        margin-bottom: 20px;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        justify-content: center; /* Canh giữa theo chiều ngang */
+    }
+
+        .tour-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 15px;
+            width: 650px; /* Điều chỉnh chiều rộng của hình ảnh */
+            height: 325px; /* Điều chỉnh chiều cao của hình ảnh */
+        }
+
+    .tour-details {
+        padding: 20px;
+    }
+
+        .tour-details dl {
+            font-size: 1.5em;
+        }
+
+        .tour-details dt {
+            font-weight: bold;
+        }
+
+        .tour-details dd {
+            margin-left: 0;
+        }
+
+    .custom-form-label,
+    .custom-form-input {
+        font-size: 1.5em;
+    }
+
+    .btn-custom {
+        width: 100%;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 mx-auto">
+                    <div class="tour-image">
+                        <img src="@tour.Anhdaidien" alt="Ảnh đại diện của tour">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9 mx-auto">
+                    <div class="tour-details">
+                        <h2 class="text-primary mb-4">@tour.Tentour</h2>
+                        <dl class="row">
+                            <dt class="col-sm-6">Ngày Bắt Đầu:</dt>
+                            <dd class="col-sm-6">@tour.Ngaykh.ToString("dd/MM/yyyy")</dd>
+
+                            <dt class="col-sm-6">Ngày Kết Thúc:</dt>
+                            <dd class="col-sm-6">@tour.Ngaykt?.ToString("dd/MM/yyyy")</dd>
+
+                            <dt class="col-sm-6">Tổng thời gian:</dt>
+                            @if (tour.Sodem == 0)
+                            {
+                                <dd class="col-sm-6">@tour.Songay Ngày</dd>
+                            }
+                            else
+                            {
+                                <dd class="col-sm-6">@tour.Songay Ngày / @tour.Sodem Đêm</dd>
+                            }
+
+                            <dt class="col-sm-6">Số Chỗ Đã Đặt:</dt>
+                            <dd class="col-sm-6">@tour.Sochodadat</dd>
+
+                            <dt class="col-sm-6">Giá:</dt>
+                            <dd class="col-sm-6">@tour.Gia?.ToString("N0") VNĐ</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <form asp-action="Add">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <h3 class="text-center" style="color: darkblue">Thông tin đặt tour</h3>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label custom-form-label">Tên tour</label>
+                                <input type="text" class="form-control custom-form-label" value="@tour.Tentour" readonly />
+                                <input type="hidden" asp-for="Matour" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Makh" class="control-label custom-form-label">@ViewData["Hoten"]</label>
+                                <input type="text" class="form-control custom-form-label" value="@ViewData["Hoten"]" readonly />
+                                <input type="hidden" asp-for="Makh" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Makm" class="control-label custom-form-label">Khuyến mãi</label>
+                                <input asp-for="Makm" class="form-control custom-form-label">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Song" class="control-label custom-form-label">Số lượng người</label>
+                                <input asp-for="Song" class="form-control custom-form-label" id="Song" />
+                                <span asp-validation-for="Song" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Tongtien" class="control-label custom-form-label">Tổng tiền</label>
+                                <input asp-for="Tongtien" class="form-control custom-form-label" id="Tongtien" readonly />
+                                <span asp-validation-for="Tongtien" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Dvt" class="control-label custom-form-label">Đơn vị tính</label>
+                                <input asp-for="Dvt" class="form-control custom-form-label" id="Dvt" readonly />
+                                <span asp-validation-for="Dvt" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Payment" class="control-label custom-form-label">Phương thức thanh toán</label>
+                                <select asp-for="Payment" class="form-control custom-form-label">
+                                    <option value="COD">COD</option>
+                                    <option value="VnPay">VnPay</option>
+                                </select>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-6 md-3 d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary custom-form-label w-100">Tạo mới</button>
+                                </div>
+                                <div class="col-6 md-3 d-flex justify-content-center">
+                                    <a href="~/" class="btn btn-secondary custom-form-label w-100">Quay lại</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let gia = 0;
+            let dvt = '';
+
+            function getTourDetails(matour) {
+                if (matour) {
+                    $.ajax({
+                        url: '@Url.Action("GetTourGia")',
+                        type: 'GET',
+                        data: { matour: matour },
+                        success: function (response) {
+                            if (response.success) {
+                                gia = response.gia;
+                                dvt = response.dvt;
+                                $('#Dvt').val(dvt);
+                                calculateTotal();
+                            } else {
+                                alert(response.message);
+                            }
+                        }
+                    });
+                }
+            }
+
+            function calculateTotal() {
+                const song = $('#Song').val();
+                if (song && gia) {
+                    const tongtien = song * gia;
+                    $('#Tongtien').val(tongtien);
+                }
+            }
+
+            // On page load, check if Matour has a value and get details if it does
+            const initialMatour = $('#Matour').val();
+            if (initialMatour) {
+                getTourDetails(initialMatour);
+            }
+
+            $('#Matour').change(function () {
+                const matour = $(this).val();
+                getTourDetails(matour);
+            });
+
+            $('#Song').on('input', function () {
+                calculateTotal();
+            });
+        });
+    </script>
+}

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DO_AN.Models.Tour>
+
+<h1 style="color: #008000;">TOURS</h1>
+
+<p>
+    <a asp-action="Add" class="btn btn-success">Create New</a>
+</p>
+<table class="table table-light">
+    <thead>
+        <tr style="background-color: #f0f8ff;">
+            <th>Tour</th>
+            <th>Loại tour</th>
+            <th>Lịch trình Tour</th>
+            <th>Điểm khởi hành</th>
+            <th>Ngày khởi hành</th>
+            <th>Ngày kết thúc</th>
+            <th>Tổng thời gian</th>
+            <th>Số lượng tối đa</th>
+            <th>Số chỗ đã đặt</th>
+            <th>Giá</th>
+            <th>Đơn vị tính</th>
+            <th>@Html.DisplayNameFor(model => model.Anhdaidien)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Tentour)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaloaiNavigation.Tenloai)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaltNavigation.Tenlt)</td>
+                <td>@Html.DisplayFor(modelItem => item.MadkhNavigation.Tendkh)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ngaykh)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ngaykt)</td>
+                <td>
+                    @if (item.Sodem == 0)
+                    {
+                        @Html.DisplayFor(modelItem => item.Songay)
+                        <text> Ngày</text>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Songay)
+                        <text> Ngày / </text> @Html.DisplayFor(modelItem => item.Sodem)
+                    }
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Soluongtoida)</td>
+                <td>@Html.DisplayFor(modelItem => item.Sochodadat)</td>
+                <td>@Html.DisplayFor(modelItem => item.Gia)</td>
+                <td>@Html.DisplayFor(modelItem => item.Dvt)</td>
+                <td><img src="@item.Anhdaidien" alt="Ảnh đại diện" style="max-width:200px;" /></td>
+                <td>
+                    <a asp-action="Update" asp-route-matour="@item.Matour" class="btn btn-info">Edit</a> |
+                    <a asp-action="Display" asp-route-matour="@item.Matour" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-matour="@item.Matour" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

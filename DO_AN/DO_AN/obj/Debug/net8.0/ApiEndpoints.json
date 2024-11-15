@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "DO_AN.Controllers.ChatController",
+    "Method": "SendMessage",
+    "RelativePath": "api/Chat/sendMessage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "DO_AN.Controllers.ChatMessage",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DO_AN.Controllers.MessageController",
+    "Method": "SendMessage",
+    "RelativePath": "api/Message/SendMessage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DO_AN.Helpers.MessageRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

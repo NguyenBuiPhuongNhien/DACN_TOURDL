@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DO_AN.Models.Tour>
+
+@{
+    ViewData["Title"] = "Trang Chủ";
+}
+<!-- Bắt đầu Gói -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="section-title bg-white text-center text-primary px-3 d-inline-block">Các Gói Tuyệt Vời</h1>
+        </div>
+        <div style="margin-top: 40px;"></div>
+        <div class="row g-6  justify-content-center">
+            @foreach (var tour in Model)
+            {
+                var averageRating = ViewData[$"AverageRating_{tour.Matour}"] as double? ?? 0;
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="package-item shadow-sm rounded overflow-hidden h-100">
+                        <div class="overflow-hidden" style="height: 200px;">
+                            <img class="img-fluid w-100 h-100 object-cover" src="@tour.Anhdaidien" alt="Ảnh đại diện">
+                        </div>
+                        <div class="d-flex border-bottom py-2">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>@tour.MaltNavigation.Tenlt</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>@tour.Songay ngày</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>@tour.Soluongtoida người</small>
+                        </div>
+                        <div class="text-center p-4">
+                            <h3 class="mb-3 text-primary">@string.Format("{0:0,0}", tour.Gia) VND</h3>
+                            <div class="mb-3">
+                                @for (int i = 0; i < 5; i++)
+                                {
+                                    if (i < Math.Round(averageRating))
+                                    {
+                                        <small class="fa fa-star text-primary"></small>
+                                    }
+                                    else
+                                    {
+                                        <small class="fa fa-star text-secondary"></small>
+                                    }
+                                }
+                            </div>
+                            <p class="mb-3">@tour.Tentour</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="@Url.Action("Detail", "Ctdd", new { matour = tour.Matour })" class="btn btn-sm btn-primary px-3 me-2" style="border-radius: 30px;">Xem Thêm</a>
+                                <a href="@Url.Action("Add",  "Phieudattour", new { matour = tour.Matour })" class="btn btn-sm btn-outline-primary px-3" style="border-radius: 30px;">Đặt Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Kết thúc Gói -->

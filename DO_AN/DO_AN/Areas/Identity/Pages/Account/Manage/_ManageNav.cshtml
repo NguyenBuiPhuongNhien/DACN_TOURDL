@@ -1,0 +1,96 @@
+﻿@using DO_AN.Models
+@inject SignInManager<User> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<style>
+  /*   body {
+        background-color: #f0f0f0; /* Màu nền khói 
+    }
+ */
+    .nav-horizontal {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-left: 0;
+        list-style: none;
+    }
+
+        .nav-horizontal .nav-item {
+            margin: 10px; /* Khoảng cách giữa các mục */
+        }
+
+        .nav-horizontal .nav-link {
+            display: block;
+            padding: 10px; /* Giảm padding */
+            text-decoration: none;
+            color: green; /* Màu chữ xanh lá */
+            font-size: 16px; /* Giảm cỡ chữ */
+            text-align: center;
+            transition: background-position 0.3s ease; /* Hiệu ứng mượt khi hover */
+            border-radius: 8px; /* Bo góc */
+            background-color: rgba(255, 255, 255, 0.2); /* Nền trong suốt */
+            background-image: linear-gradient(to top, transparent 50%, rgba(76, 175, 80, 0.2) 50%);
+            background-size: 100% 200%;
+            background-position: bottom;
+        }
+
+        .nav-horizontal .nav-lonk {
+            display: block;
+            padding: 10px; /* Giảm padding */
+            text-decoration: none;
+            color: red; /* Màu chữ xanh lá */
+            font-size: 16px; /* Giảm cỡ chữ */
+            text-align: center;
+            transition: background-position 0.3s ease; /* Hiệu ứng mượt khi hover */
+            border-radius: 8px; /* Bo góc */
+            background-color: rgba(255, 255, 255, 0.2); /* Nền trong suốt */
+            background-image: linear-gradient(to top, transparent 50%, rgba(76, 175, 80, 0.2) 50%);
+            background-size: 100% 200%;
+            background-position: bottom;
+        }
+
+            .nav-horizontal .nav-link:hover {
+                background-position: top; /* Di chuyển gradient lên đầu */
+            }
+</style>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <ul class="nav nav-pills nav-horizontal">
+            <div class="col-6">
+            <li class="nav-item">
+                <a class="nav-link" asp-page="./Index"><b>Chỉnh sửa thông tin</b></a>
+            </li>
+    </div>
+    <div class="col-6">
+        <li class="nav-item">
+            <a id="email" class="nav-link" asp-page="./Email"><b>Quản lý Email</b></a>
+        </li>
+    </div>
+    <div class="col-6">
+        <li class="nav-item">
+            <a id="change-password" class="nav-link" asp-page="./ChangePassword"><b>Quản lý mật khẩu</b></a>
+        </li>
+    </div>
+            @if (hasExternalLogins)
+            {
+        <div class="col-6">
+            <li class="nav-item">
+                <a id="external-login" class="nav-link" asp-page="./ExternalLogins"><b>Quản lý đăng nhập</b></a>
+            </li>
+        </div>
+            }
+    <div class="col-6">
+        <li class="nav-item">
+            <a class="nav-link" href="~/phieudattour/index"><b>Các tour đã đặt</b></a>
+        </li>
+    </div>
+    <div class="col-12">
+        <li class="nav-item">
+            <a class="nav-lonk" asp-page="./DeletePersonalData"><b>Xóa tài khoản</b></a>
+        </li>
+    </div>
+    </ul>
+</div>
+</div>
